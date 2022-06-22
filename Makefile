@@ -6,3 +6,15 @@ buildapi:
 
 exec:
 	docker exec -it ${t} bash
+
+sqlc: 
+	sqlc generate
+
+# step 5
+migrateup:
+	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose up
+
+# if you need 
+migratedown:
+	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
+
