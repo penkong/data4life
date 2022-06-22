@@ -1,5 +1,5 @@
 -- CREATE USER root;
-CREATE DATABASE solarpg;
+CREATE DATABASE datalifepg;
 --          -------------------------
 -- GRANT ALL PRIVILEGES ON DATABASE devref-ts-express-rest-pg-auth TO root;
 

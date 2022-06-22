@@ -1,0 +1,8 @@
+GET http://localhost:3000 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "first_name": "mazdak",
+#     "last_name": "nazemi",
+#     "email": "nazemi.works@gmail.com"
+# }

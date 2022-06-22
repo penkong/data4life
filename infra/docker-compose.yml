@@ -81,7 +81,7 @@ services:
   pg:
     image: 'postgres:13.2-alpine'
     volumes: 
-      - pgvol:/var/lib/postgresql/data 
+      - pg_vol:/var/lib/postgresql/data 
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   pgadmin:
@@ -92,7 +92,7 @@ services:
 
 
 volumes:
-  pgvol:
+  pg_vol:
     driver: local
   portainer_data:
     driver: local
