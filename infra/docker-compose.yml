@@ -1,0 +1,102 @@
+version: '3.4'
+services:
+
+  nginx:
+    image: 'nginx:stable-alpine'
+    ports: 
+      - 80:80
+      - 443:443
+    tty: true
+    depends_on: 
+      - pg
+      - pgadmin
+      - portainer
+      - elasticsearch
+      - kibana
+      - logstash
+    volumes: 
+      # remember!!!!!!! add trust proxy to nodejs services
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro #read only 
+
+  elasticsearch:
+    build:
+      context: ../monitor/elasticsearch
+    volumes:
+      - type: bind
+        source: ../monitor/elasticsearch/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
+      - type: volume
+        source: elsasticvol
+        target: /usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  logstash:
+    build:
+      context: ../monitor/logstash/
+    volumes:
+      - type: bind
+        source: ../monitor/logstash/config/logstash.yml
+        target: /usr/share/logstash/config/logstash.yml
+        read_only: true
+      - type: bind
+        source: ../monitor/logstash/pipe
+        target: /usr/share/logstash/pipeline
+        read_only: true
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    build:
+      context: ../monitor/kibana/
+    volumes:
+      - type: bind
+        source: ../monitor/kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+      - type: volume
+        source: logs
+        target: /var/log
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    cap_add:
+      - ALL
+
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock 
+
+  pg:
+    image: 'postgres:13.2-alpine'
+    volumes: 
+      - pgvol:/var/lib/postgresql/data 
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  pgadmin:
+    image: 'dpage/pgadmin4'
+    restart: always
+    depends_on:
+      - pg
+
+
+volumes:
+  pgvol:
+    driver: local
+  portainer_data:
+    driver: local
+  elsasticvol:
+    driver: local
+  logs:
+    driver: local

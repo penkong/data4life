@@ -1,0 +1,48 @@
+version: '3.4'
+services:
+
+  nginx:
+    stdin_open: true
+
+  portainer:
+    stdin_open: true
+
+  elasticsearch:
+    stdin_open: true
+    restart: always
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: changeme
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
+      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+
+  logstash:
+    stdin_open: true
+    restart: always
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+
+  kibana:
+    stdin_open: true
+    restart: always
+
+  pg:
+    restart: always
+    stdin_open: true
+    environment:
+      # - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      - PGPORT=5432
+    ports: 
+      - 5432:5432
+
+  pgadmin:
+    stdin_open: true
+    environment: 
+      - PGADMIN_DEFAULT_EMAIL=nazemi.works@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=secret
+    # ports: 
+    #   - 80:80
+
