@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 22 16:50:11 2022
+# Make data base, printed on Thu Jun 23 12:40:03 2022
 
 # Variables
 
@@ -15,13 +17,15 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
+NO_AT_BRIDGE = 1
+# environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4c42b0c9-3231-4e4b-880c-766120791e1e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9b54f456-b3b7-43ee-85c0-873f5e7f165b.sock
 # environment
 LC_NAME = de_DE.UTF-8
 # environment
@@ -36,6 +40,8 @@ LC_ADDRESS = de_DE.UTF-8
 MAKE_COMMAND := make
 # environment
 QT_ACCESSIBILITY = 1
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
 # environment
 GOPATH = /home/mazdak/go
 # automatic
@@ -54,6 +60,8 @@ PWD = /home/mazdak/go/pkg/github.com/penkong/data4life
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/mazdak/go/pkg/github.com/penkong
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -67,17 +75,17 @@ VSCODE_CODE_CACHE_PATH = /home/mazdak/.config/Code/CachedData/30d9c6cd9483b2cc58
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.FA7FO1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.DWINO1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.5151
+GNOME_TERMINAL_SERVICE = :1.227
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=5f9cde04257aee34a28e88eb62b2af0e
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=1581ad9a93591f71b8d8c9da62b4175c
 # makefile
 CURDIR := /home/mazdak/go/pkg/github.com/penkong/data4life
 # environment
@@ -103,6 +111,8 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
+GIT_ASKPASS = /snap/code/99/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+# environment
 XDG_SESSION_DESKTOP = ubuntu
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
@@ -113,19 +123,19 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 79446
+VSCODE_PID = 35110
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/4325,unix/mazdak:/tmp/.ICE-unix/4325
+SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/2083,unix/mazdak:/tmp/.ICE-unix/2083
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=5f9cde04257aee34a28e88eb62b2af0e
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=1581ad9a93591f71b8d8c9da62b4175c
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -141,9 +151,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-SHLVL = 1
+SHLVL = 2
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/32bfa290_3787_475f_9d00_4a166ecd30ff
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c45966d0_beb0_4acb_bcaf_77352907119a
 # environment
 MAKELEVEL := 0
 # default
@@ -151,9 +161,13 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = rKn6JeQmZRPgX6Lk15-kJVrkRcSlDhRI7COGWx4wJNzJD8bvzSRy
 # environment
-PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin
+PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin:/usr/local/go/bin
 # default
 MAKEFILES := 
+# environment
+VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-e7d778574e.sock
+# environment
+VSCODE_GIT_ASKPASS_NODE = /snap/code/99/usr/share/code/code
 # environment
 LC_MONETARY = de_DE.UTF-8
 # automatic
@@ -162,6 +176,8 @@ LC_MONETARY = de_DE.UTF-8
 SNAP_USER_COMMON = /home/mazdak/snap/code/common
 # environment
 LC_TIME = de_DE.UTF-8
+# environment
+VSCODE_GIT_ASKPASS_MAIN = /snap/code/99/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # environment
 SNAP = /snap/code/99
 # environment
@@ -172,6 +188,8 @@ SNAP_REAL_HOME = /home/mazdak
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = mazdak
+# environment
+TERM_PROGRAM = vscode
 # environment
 GNOME_SETUP_DISPLAY = :1
 # environment
@@ -189,7 +207,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 DESKTOP_SESSION = ubuntu
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -199,7 +217,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := composebuild
 # environment
-SYSTEMD_EXEC_PID = 4325
+SYSTEMD_EXEC_PID = 2083
 # environment
 DISPLAY = :0
 # environment
@@ -270,10 +288,13 @@ VTE_VERSION = 6800
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+ 
 # environment
 SNAP_USER_DATA = /home/mazdak/snap/code/99
 # environment
 XDG_MENU_PREFIX = gnome-
+# environment
+TERM_PROGRAM_VERSION = 1.68.1
 # environment
 GDMSESSION = ubuntu
 # environment
@@ -281,20 +302,17 @@ LC_IDENTIFICATION = de_DE.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=135/1024=13%, Rehash=0, Collisions=13/165=8%
+# Load=144/1024=14%, Rehash=0, Collisions=13/174=7%
 
 # Pattern-specific Variable Values
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 66309, inode 4732332): 12 files, no impossibilities.
+# . (device 66309, inode 4732332): 20 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -309,10 +327,17 @@ exec:
 #  recipe to execute (from 'Makefile', line 8):
 	docker exec -it ${t} bash
 
+migratedown:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 19):
+	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 16:32:44.553145301
+#  Last modified 2022-06-22 17:08:30.227796498
 #  File has been updated.
 #  Successfully updated.
 
@@ -322,6 +347,13 @@ buildapi:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 5):
 	docker build -t penkong/data4life ./service
+
+migrateup:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 15):
+	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose up
 
 # Not a target:
 .DEFAULT:
@@ -336,6 +368,13 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+sqlc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
+	sqlc generate
+
 composebuild:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -344,19 +383,19 @@ composebuild:
 	docker-compose -f infra/docker-compose.yml -f infra/docker-compose.dev.yml up --build
 
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/17=0%
+# Load=10/1024=1%, Rehash=0, Collisions=0/20=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 198 B / avg = 9 B
-# current buf: size = 8162 B / used = 198 B / count = 20 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 286 B / avg = 9 B
+# current buf: size = 8162 B / used = 286 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 27 / hit rate = 25%
+# strcache performance: lookups = 41 / hit rate = 24%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/27=0%
-# Finished Make data base on Wed Jun 22 16:50:11 2022
+# Load=31/8192=0%, Rehash=0, Collisions=0/41=0%
+# Finished Make data base on Thu Jun 23 12:40:03 2022
 
  
