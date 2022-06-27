@@ -7,9 +7,7 @@ import (
 	"log"
 )
 
-var Store *pgdb.Queries
-
-func Setup(conf *util.Config) {
+func Setup(conf *util.Config) *pgdb.Repo {
 
 	// Open connection to database in this case Postgres13
 	conn, err := sql.Open(conf.DBDriver, conf.DBSource)
@@ -22,6 +20,6 @@ func Setup(conf *util.Config) {
 		log.Fatal("ping error!!!", err)
 	}
 
-	// Create new Store with transactions for queries - DB logic
-	Store = pgdb.New(conn)
+	return pgdb.NewRepo(conn)
+
 }
