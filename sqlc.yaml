@@ -1,9 +1,11 @@
 version: '1'
+project:
+  id: ""
 packages:
   - name: 'pgdb'
-    path: './service/db/pgdb'
-    queries: './service/db/query/'
-    schema: './service/db/migration/'
+    path: './db/pgdb'
+    queries: './db/query/'
+    schema: './db/schema/'
     engine: 'postgresql'
     emit_prepared_queries: true
     emit_interface: true

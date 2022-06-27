@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"log"
-
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
-
-	// "database/sql"
-	"github.com/gofiber/fiber/v2"
 	_ "github.com/lib/pq"
-	"github.com/penkong/data4life/router"
+	"log"
+	//
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+	//
+	"github.com/penkong/data4life/api/router"
+	"github.com/penkong/data4life/pkg/connectDb"
 	"github.com/penkong/data4life/util"
 )
 
@@ -22,12 +21,7 @@ func main() {
 		log.Fatal("cannot load config:", err)
 	}
 
-	db, err := gorm.Open(postgres.Open(conf.DBSource), &gorm.Config{})
-	if err != nil {
-		log.Fatal("cannot load db: ", err)
-	}
-
-	fmt.Println(db)
+	connectdb.Setup(&conf)
 
 	app := fiber.New(fiber.Config{
 		AppName:       conf.APPName,
@@ -38,7 +32,9 @@ func main() {
 		BodyLimit:     8 * 1024 * 1024,
 	})
 
-	approuter.Route(app)
+	app.Use(cors.New())
+	app.Use(logger.New())
+	api.Setup(app)
 
 	app.Listen(conf.ServerAddress)
 

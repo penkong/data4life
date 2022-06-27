@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 23 12:40:03 2022
+# Make data base, printed on Mon Jun 27 10:37:42 2022
 
 # Variables
 
@@ -17,15 +17,13 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-NO_AT_BRIDGE = 1
-# environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9b54f456-b3b7-43ee-85c0-873f5e7f165b.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7c5ed5f6-380d-440e-aa72-c6a4524bdd14.sock
 # environment
 LC_NAME = de_DE.UTF-8
 # environment
@@ -40,8 +38,6 @@ LC_ADDRESS = de_DE.UTF-8
 MAKE_COMMAND := make
 # environment
 QT_ACCESSIBILITY = 1
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
 # environment
 GOPATH = /home/mazdak/go
 # automatic
@@ -60,8 +56,6 @@ PWD = /home/mazdak/go/pkg/github.com/penkong/data4life
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-OLDPWD = /home/mazdak/go/pkg/github.com/penkong
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -75,17 +69,17 @@ VSCODE_CODE_CACHE_PATH = /home/mazdak/.config/Code/CachedData/30d9c6cd9483b2cc58
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.DWINO1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.GJJ9N1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.227
+GNOME_TERMINAL_SERVICE = :1.181
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=1581ad9a93591f71b8d8c9da62b4175c
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=ab0fe5b804232feb0a55744762b965d8
 # makefile
 CURDIR := /home/mazdak/go/pkg/github.com/penkong/data4life
 # environment
@@ -111,8 +105,6 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-GIT_ASKPASS = /snap/code/99/usr/share/code/resources/app/extensions/git/dist/askpass.sh
-# environment
 XDG_SESSION_DESKTOP = ubuntu
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
@@ -123,19 +115,19 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 35110
+VSCODE_PID = 16231
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/2083,unix/mazdak:/tmp/.ICE-unix/2083
+SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/4278,unix/mazdak:/tmp/.ICE-unix/4278
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=1581ad9a93591f71b8d8c9da62b4175c
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=ab0fe5b804232feb0a55744762b965d8
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -151,9 +143,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-SHLVL = 2
+SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c45966d0_beb0_4acb_bcaf_77352907119a
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e9102232_8f7d_48db_851c_a5383a8e95ed
 # environment
 MAKELEVEL := 0
 # default
@@ -161,13 +153,9 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = rKn6JeQmZRPgX6Lk15-kJVrkRcSlDhRI7COGWx4wJNzJD8bvzSRy
 # environment
-PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin:/usr/local/go/bin
+PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin
 # default
 MAKEFILES := 
-# environment
-VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-e7d778574e.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /snap/code/99/usr/share/code/code
 # environment
 LC_MONETARY = de_DE.UTF-8
 # automatic
@@ -176,8 +164,6 @@ LC_MONETARY = de_DE.UTF-8
 SNAP_USER_COMMON = /home/mazdak/snap/code/common
 # environment
 LC_TIME = de_DE.UTF-8
-# environment
-VSCODE_GIT_ASKPASS_MAIN = /snap/code/99/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # environment
 SNAP = /snap/code/99
 # environment
@@ -188,8 +174,6 @@ SNAP_REAL_HOME = /home/mazdak
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = mazdak
-# environment
-TERM_PROGRAM = vscode
 # environment
 GNOME_SETUP_DISPLAY = :1
 # environment
@@ -207,7 +191,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 DESKTOP_SESSION = ubuntu
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -217,7 +201,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := composebuild
 # environment
-SYSTEMD_EXEC_PID = 2083
+SYSTEMD_EXEC_PID = 4278
 # environment
 DISPLAY = :0
 # environment
@@ -288,13 +272,10 @@ VTE_VERSION = 6800
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
- 
 # environment
 SNAP_USER_DATA = /home/mazdak/snap/code/99
 # environment
 XDG_MENU_PREFIX = gnome-
-# environment
-TERM_PROGRAM_VERSION = 1.68.1
 # environment
 GDMSESSION = ubuntu
 # environment
@@ -302,17 +283,18 @@ LC_IDENTIFICATION = de_DE.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=144/1024=14%, Rehash=0, Collisions=13/174=7%
+# Load=135/1024=13%, Rehash=0, Collisions=13/165=8%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
+ 
 
 # Directories
 
-# . (device 66309, inode 4732332): 20 files, no impossibilities.
+# . (device 66309, inode 4732332): 23 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -390,12 +372,12 @@ composebuild:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 286 B / avg = 9 B
-# current buf: size = 8162 B / used = 286 B / count = 31 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 318 B / avg = 9 B
+# current buf: size = 8162 B / used = 318 B / count = 34 / avg = 9 B
 
-# strcache performance: lookups = 41 / hit rate = 24%
+# strcache performance: lookups = 44 / hit rate = 22%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=0/41=0%
-# Finished Make data base on Thu Jun 23 12:40:03 2022
+# Load=34/8192=0%, Rehash=0, Collisions=0/44=0%
+# Finished Make data base on Mon Jun 27 10:37:42 2022
 
  
