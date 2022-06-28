@@ -10,6 +10,7 @@ import (
 func main() {
 
 	// Load up config files with viper
+
 	conf, err := util.LoadConfig(".")
 	if err != nil {
 		log.Fatal("cannot load config:", err)
