@@ -1,5 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/mazdak/go/pkg/github.com/penkong/data4life'
-docker-compose -f infra/docker-compose.yml -f infra/docker-compose.dev.yml up --build
 make: Leaving directory '/home/mazdak/go/pkg/github.com/penkong/data4life'
  
+make: *** No targets specified and no makefile found.  Stop.
+
