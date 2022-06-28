@@ -19,4 +19,6 @@ migratedown:
 	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
 
 run:
-	go run cmd/main.go
+	air
+
+# you need install air , go-migrate cli and sqlc in your local
