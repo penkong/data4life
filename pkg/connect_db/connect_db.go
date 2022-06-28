@@ -7,7 +7,9 @@ import (
 	"log"
 )
 
-func Setup(conf *util.Config) *pgdb.Repo {
+var Pdb *pgdb.Repo
+
+func Setup(conf *util.Config) {
 
 	// Open connection to database in this case Postgres13
 	conn, err := sql.Open(conf.DBDriver, conf.DBSource)
@@ -20,6 +22,5 @@ func Setup(conf *util.Config) *pgdb.Repo {
 		log.Fatal("ping error!!!", err)
 	}
 
-	return pgdb.NewRepo(conn)
-
+	Pdb = pgdb.NewRepo(conn)
 }

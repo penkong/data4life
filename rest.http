@@ -1,4 +1,4 @@
-GET http://localhost:5000/api/v1/todos/ HTTP/1.1
+POST  http://localhost:5000/api/v1/auth/login HTTP/1.1
 # content-type: application/json
 
 # {
@@ -6,3 +6,19 @@ GET http://localhost:5000/api/v1/todos/ HTTP/1.1
 #     "last_name": "nazemi",
 #     "email": "nazemi.works@gmail.com"
 # }
+
+###
+POST  http://localhost:5000/api/v1/auth/register HTTP/1.1
+# content-type: application/json
+
+# {
+#     "first_name": "mazdak",
+#     "last_name": "nazemi",
+#     "email": "nazemi.works@gmail.com"
+# }
+
+###
+POST http://localhost:5000/api/v1/auth/forget-pass HTTP/1.1
+
+###
+POST http://localhost:5000/api/v1/user/current HTTP/1.1

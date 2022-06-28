@@ -13,13 +13,8 @@ func NewHandlers(repo *pgdb.Repo) *Handlers {
 	return &Handlers{Repo: repo}
 }
 
-func Setup(app *fiber.App, pg *pgdb.Repo) {
-	h := NewHandlers(pg)
+func Setup(app *fiber.App) {
 	v1 := app.Group("/api/v1")
-	SetUpTodo(v1, h)
-}
-
-func SetUpTodo(r fiber.Router, h *Handlers) {
-	todosRoutes := r.Group("/todos")
-	todosRoutes.Get("/", h.GetTodos)
+	SetUpAuth(v1)
+	SetUpUser(v1)
 }

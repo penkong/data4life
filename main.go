@@ -10,28 +10,30 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	_ "github.com/lib/pq"
 	//
-	"github.com/penkong/data4life/api/router"
 	"github.com/penkong/data4life/pkg/connect_db"
+	"github.com/penkong/data4life/router"
 	"github.com/penkong/data4life/util"
 )
 
 var app *fiber.App
+var Conf util.Config
+var Conf_err error
 
 // Init function , do bootstrap parts here .
 func init() {
 
 	// load env vars with viper as utility
-	conf, err := util.LoadConfig(".")
-	if err != nil {
-		log.Fatal("cannot load config:", err)
+	Conf, Conf_err = util.LoadConfig(".")
+	if Conf_err != nil {
+		log.Fatal("cannot load config:", Conf_err)
 	}
 
 	// database connections
-	repo := connectdb.Setup(&conf)
+	connectdb.Setup(&Conf)
 
 	// make instance of fiber .
 	app = fiber.New(fiber.Config{
-		AppName:       conf.APPName,
+		AppName:       Conf.APPName,
 		ServerHeader:  "X-GO",
 		StrictRouting: false,
 		CaseSensitive: true,
@@ -45,7 +47,7 @@ func init() {
 	app.Use(cors.New())
 
 	// routers
-	apirouters.Setup(app, repo)
+	apirouters.Setup(app)
 }
 
 // clean port and allow to listen on CMD
