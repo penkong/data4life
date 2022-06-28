@@ -18,3 +18,5 @@ migrateup:
 migratedown:
 	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
 
+run:
+	go run cmd/main.go

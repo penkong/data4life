@@ -8,6 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	_ "github.com/lib/pq"
 	//
 	"github.com/penkong/data4life/api/router"
 	"github.com/penkong/data4life/pkg/connect_db"
