@@ -7,7 +7,6 @@ import (
 
 type Handlers struct {
 	Repo *pgdb.Repo
-	*fiber.Ctx
 }
 
 func NewHandlers(repo *pgdb.Repo) *Handlers {
@@ -16,15 +15,11 @@ func NewHandlers(repo *pgdb.Repo) *Handlers {
 
 func Setup(app *fiber.App, pg *pgdb.Repo) {
 	h := NewHandlers(pg)
-	v1 := app.Group("/v1/api")
+	v1 := app.Group("/api/v1")
 	SetUpTodo(v1, h)
 }
 
 func SetUpTodo(r fiber.Router, h *Handlers) {
 	todosRoutes := r.Group("/todos")
-	todosRoutes.Get("/", GetTodos)
-}
-
-func GetTodos(ctx *fiber.Ctx) {
-	h.Repo.GetTodo(ctx, 3)
+	todosRoutes.Get("/", h.GetTodos)
 }
