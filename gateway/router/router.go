@@ -15,6 +15,6 @@ func NewHandlers(repo *pgdb.Repo) *Handlers {
 
 func Setup(app *fiber.App) {
 	v1 := app.Group("/api/v1")
-	SetUpAuth(v1)
-	SetUpUser(v1)
+	SetupTokenGenerator(v1)
+	SetupWriterTo(v1)
 }

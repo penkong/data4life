@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun 27 10:37:42 2022
+# Make data base, printed on Wed Jun 29 10:50:03 2022
 
 # Variables
 
@@ -23,7 +21,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7c5ed5f6-380d-440e-aa72-c6a4524bdd14.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-af484b78-c052-49ac-adc7-9127fc2f83ae.sock
 # environment
 LC_NAME = de_DE.UTF-8
 # environment
@@ -69,17 +67,17 @@ VSCODE_CODE_CACHE_PATH = /home/mazdak/.config/Code/CachedData/30d9c6cd9483b2cc58
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.GJJ9N1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.BH1EO1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.181
+GNOME_TERMINAL_SERVICE = :1.177
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=ab0fe5b804232feb0a55744762b965d8
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2b975294b57ed5f1c198a7fd62bc0989
 # makefile
 CURDIR := /home/mazdak/go/pkg/github.com/penkong/data4life
 # environment
@@ -115,19 +113,19 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 16231
+VSCODE_PID = 14973
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/4278,unix/mazdak:/tmp/.ICE-unix/4278
+SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/1963,unix/mazdak:/tmp/.ICE-unix/1963
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=ab0fe5b804232feb0a55744762b965d8
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=2b975294b57ed5f1c198a7fd62bc0989
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -145,7 +143,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e9102232_8f7d_48db_851c_a5383a8e95ed
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d0ca6583_2e1c_4aff_934b_37c40802146f
 # environment
 MAKELEVEL := 0
 # default
@@ -153,7 +151,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = rKn6JeQmZRPgX6Lk15-kJVrkRcSlDhRI7COGWx4wJNzJD8bvzSRy
 # environment
-PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin
+PATH = /home/mazdak/.nvm/versions/node/v18.2.0/bin:/home/mazdak/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/go/bin:/home/mazdak/go/bin
 # default
 MAKEFILES := 
 # environment
@@ -199,9 +197,9 @@ LOGNAME = mazdak
 # environment
 SNAP_ARCH = amd64
 # makefile
-.DEFAULT_GOAL := composebuild
+.DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 4278
+SYSTEMD_EXEC_PID = 1963
 # environment
 DISPLAY = :0
 # environment
@@ -283,18 +281,20 @@ LC_IDENTIFICATION = de_DE.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=135/1024=13%, Rehash=0, Collisions=13/165=8%
+ 
+make: *** No rule to make target 'all'.  Stop.
+
+# Load=135/1024=13%, Rehash=0, Collisions=13/164=8%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
- 
 
 # Directories
 
-# . (device 66309, inode 4732332): 23 files, no impossibilities.
+# . (device 66309, inode 4732332): 7 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 7 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -302,40 +302,12 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Files
 
-exec:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 8):
-	docker exec -it ${t} bash
-
-migratedown:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 19):
-	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
-
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 17:08:30.227796498
+#  Last modified 2022-06-28 17:11:50.161668089
 #  File has been updated.
 #  Successfully updated.
-
-buildapi:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 5):
-	docker build -t penkong/data4life ./service
-
-migrateup:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 15):
-	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose up
 
 # Not a target:
 .DEFAULT:
@@ -350,34 +322,20 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-sqlc:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 11):
-	sqlc generate
-
-composebuild:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 2):
-	docker-compose -f infra/docker-compose.yml -f infra/docker-compose.dev.yml up --build
-
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/20=0%
+# Load=4/1024=0%, Rehash=0, Collisions=0/14=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 34 / storage = 318 B / avg = 9 B
-# current buf: size = 8162 B / used = 318 B / count = 34 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 12 / storage = 96 B / avg = 8 B
+# current buf: size = 8162 B / used = 96 B / count = 12 / avg = 8 B
 
-# strcache performance: lookups = 44 / hit rate = 22%
+# strcache performance: lookups = 16 / hit rate = 25%
 # hash-table stats:
-# Load=34/8192=0%, Rehash=0, Collisions=0/44=0%
-# Finished Make data base on Mon Jun 27 10:37:42 2022
+# Load=12/8192=0%, Rehash=0, Collisions=0/16=0%
+# Finished Make data base on Wed Jun 29 10:50:03 2022
 
  
