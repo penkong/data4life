@@ -12,11 +12,11 @@ sqlc:
 
 # step 5
 migrateup:
-	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose up
+	cd db && cd goose && goose postgres "user=root password=secret dbname=datalifepg sslmode=disable" up
 
-# if you need 
+
 migratedown:
-	migrate -path service/db/migration -database "postgresql://root:secret@pg:5432/authservice?sslmode=disable" -verbose down
+	cd db && cd goose && goose postgres "user=root password=secret dbname=datalifepg sslmode=disable" down
 
 run:
 	air

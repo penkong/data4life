@@ -10,9 +10,7 @@ import (
 )
 
 const writeToken = `-- name: WriteToken :exec
-INSERT INTO token (name) VALUES ($1) 
-ON CONFLICT (name) 
-DO UPDATE SET occur = occur::int + 1
+INSERT INTO token (name) VALUES ($1) ON CONFLICT (name) DO UPDATE SET occur = nextval('seq')
 `
 
 func (q *Queries) WriteToken(ctx context.Context, name string) error {
