@@ -7,3 +7,5 @@ GET http://localhost:5000/api/v1/token/generator/?rows=1000000 HTTP/1.1
 #     "email": "nazemi.works@gmail.com"
 # }
 
+###
+GET http://localhost:5000/api/v1/write-to/token-pg HTTP/1.1

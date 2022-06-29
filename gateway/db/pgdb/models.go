@@ -4,18 +4,10 @@
 
 package pgdb
 
-import (
-	"database/sql"
-)
+import ()
 
-type Sth struct {
-	ID   int64          `db:"id" json:"id"`
-	Name string         `db:"name" json:"name"`
-	Bio  sql.NullString `db:"bio" json:"bio"`
-}
-
-type Todo struct {
-	ID   int64          `db:"id" json:"id"`
-	Name string         `db:"name" json:"name"`
-	Bio  sql.NullString `db:"bio" json:"bio"`
+type Token struct {
+	ID    int64  `db:"id" json:"id"`
+	Name  string `db:"name" json:"name"`
+	Occur int32  `db:"occur" json:"occur"`
 }

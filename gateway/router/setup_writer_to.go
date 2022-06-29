@@ -6,6 +6,6 @@ import (
 )
 
 func SetupWriterTo(r fiber.Router) {
-	userRoutes := r.Group("/user")
-	userRoutes.Post("/current", writerto.WriterToPG)
+	userRoutes := r.Group("/write-to")
+	userRoutes.Get("/token-pg", writerto.WriterToPG)
 }

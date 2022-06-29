@@ -9,14 +9,13 @@ import (
 	"context"
 )
 
-const getTodo = `-- name: GetTodo :one
-SELECT id, name, bio FROM todo
-WHERE id = $1 LIMIT 1
+const writeToken = `-- name: WriteToken :exec
+INSERT INTO token (name) VALUES ($1) 
+ON CONFLICT (name) 
+DO UPDATE SET occur = occur::int + 1
 `
 
-func (q *Queries) GetTodo(ctx context.Context, id int64) (Todo, error) {
-	row := q.queryRow(ctx, q.getTodoStmt, getTodo, id)
-	var i Todo
-	err := row.Scan(&i.ID, &i.Name, &i.Bio)
-	return i, err
+func (q *Queries) WriteToken(ctx context.Context, name string) error {
+	_, err := q.exec(ctx, q.writeTokenStmt, writeToken, name)
+	return err
 }

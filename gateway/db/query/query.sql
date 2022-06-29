@@ -1,4 +1,4 @@
--- name: GetTodo :one
-SELECT * FROM todo
-WHERE id = $1 LIMIT 1;
-
+-- name: WriteToken :exec
+INSERT INTO token (name) VALUES ($1) 
+ON CONFLICT (name) 
+DO UPDATE SET occur = occur::int + 1;

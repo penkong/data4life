@@ -9,7 +9,7 @@ import (
 )
 
 type Querier interface {
-	GetTodo(ctx context.Context, id int64) (Todo, error)
+	WriteToken(ctx context.Context, name string) error
 }
 
 var _ Querier = (*Queries)(nil)
