@@ -36,6 +36,7 @@ func TokenCreator(c *fiber.Ctx) error {
 
 	// ---------------------------------------------
 
+	// select waitgroup and worker tested , waitgroup is fastest one , seems .
 	ch := make(chan string)
 	go func() {
 		defer close(ch)
@@ -58,7 +59,32 @@ func TokenCreator(c *fiber.Ctx) error {
 
 	// ----------------------------------------------
 
+	// const numJobs = 5
+	// jobs := make(chan string, n)
+	// results := make(chan string, n)
+
+	// for w := 1; w <= 10000; w++ {
+	// 	go worker(w, jobs, results)
+	// }
+
+	// for j := 1; j <= n; j++ {
+	// 	jobs <- util.RandomString(7)
+	// }
+	// close(jobs)
+
+	// for a := 1; a <= n; a++ {
+	// 	util.Generate(f, <-results)
+	// }
+
+	// ----------------------------------------------
+
 	return c.Status(fiber.StatusAccepted).JSON(fiber.Map{
 		"msg": strconv.FormatInt(int64(num), 10) + " rows in generated in that file",
 	})
 }
+
+// func worker(id int, jobs <-chan string, results chan<- string) {
+// 	for j := range jobs {
+// 		results <- j
+// 	}
+// }
