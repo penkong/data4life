@@ -1,6 +1,8 @@
 package tokengenerator
 
 import (
+	"log"
+	"os"
 	"strconv"
 	"sync"
 
@@ -13,28 +15,50 @@ type Params struct {
 }
 
 func TokenCreator(c *fiber.Ctx) error {
-	var msg string
 	r := new(Params)
 	if err := c.QueryParser(r); err != nil {
 		return err
 	}
 
-	num, err := strconv.ParseInt(r.Rows, 10, 32)
+	num, err := strconv.ParseInt(r.Rows, 10, 64)
 	if err != nil {
 		return err
 	}
 
-	var wg sync.WaitGroup
+	f, err := os.Create("data.txt")
 
-	wg.Add(1)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.Close()
+	n := int(num)
+
+	// ---------------------------------------------
+
+	ch := make(chan string)
 	go func() {
-		defer wg.Done()
-		util.FileGenerator(int(num))
+		defer close(ch)
+		for i := 0; i < n; i++ {
+			ch <- util.RandomString(7)
+		}
 	}()
+
+	var wg sync.WaitGroup
+	wg.Add(100)
+	for i := 0; i < 100; i++ {
+		go func() {
+			defer wg.Done()
+			for l := range ch {
+				util.Generate(f, l)
+			}
+		}()
+	}
 	wg.Wait()
 
-	msg = strconv.FormatInt(int64(num), 10) + " rows in generated in that file"
+	// ----------------------------------------------
+
 	return c.Status(fiber.StatusAccepted).JSON(fiber.Map{
-		"msg": msg,
+		"msg": strconv.FormatInt(int64(num), 10) + " rows in generated in that file",
 	})
 }
