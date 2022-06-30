@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 29 22:01:24 2022
+# Make data base, printed on Thu Jun 30 23:34:45 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-732e9120-2502-409a-becb-6662ff7d9614.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c313db78-76a9-49ea-b035-2fc8aceed238.sock
 # environment
 LC_NAME = de_DE.UTF-8
 # environment
@@ -69,17 +69,17 @@ VSCODE_CODE_CACHE_PATH = /home/mazdak/.config/Code/CachedData/30d9c6cd9483b2cc58
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.BH1EO1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.QO46N1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.177
+GNOME_TERMINAL_SERVICE = :1.179
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2b975294b57ed5f1c198a7fd62bc0989
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=ebb2de726c88ea420f113ca662bd4fae
 # makefile
 CURDIR := /home/mazdak/go/pkg/github.com/penkong/data4life
 # environment
@@ -115,19 +115,19 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 249066
+VSCODE_PID = 1742608
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/1963,unix/mazdak:/tmp/.ICE-unix/1963
+SESSION_MANAGER = local/mazdak:@/tmp/.ICE-unix/2721,unix/mazdak:/tmp/.ICE-unix/2721
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=2b975294b57ed5f1c198a7fd62bc0989
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=ebb2de726c88ea420f113ca662bd4fae
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -145,7 +145,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/efef8829_6741_469e_b992_e41702b4b0ee
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e59cdca1_9336_4ff8_9200_b9fc147d95a7
 # environment
 MAKELEVEL := 0
 # default
@@ -201,7 +201,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := composebuild
 # environment
-SYSTEMD_EXEC_PID = 1963
+SYSTEMD_EXEC_PID = 2721
 # environment
 DISPLAY = :0
 # environment
@@ -283,12 +283,12 @@ LC_IDENTIFICATION = de_DE.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
+ 
 # Load=135/1024=13%, Rehash=0, Collisions=13/165=8%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
- 
 
 # Directories
 
@@ -343,6 +343,6 @@ composebuild:
 # strcache performance: lookups = 18 / hit rate = 27%
 # hash-table stats:
 # Load=13/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Wed Jun 29 22:01:24 2022
+# Finished Make data base on Thu Jun 30 23:34:45 2022
 
  
