@@ -5,10 +5,10 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"github.com/penkong/data4life/gateway/pkg/connect_db"
+	pg "github.com/lib/pq"
+	connectdb "github.com/penkong/data4life/gateway/pkg/connect_db"
 	"log"
 	"os"
-	"strings"
 	"sync"
 )
 
@@ -60,7 +60,8 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
-	valueStrings := []string{}
+	// valueStrings := []string{}
+	keys := []interface{}{}
 	values := []interface{}{}
 
 	wg2 := new(sync.WaitGroup)
@@ -69,9 +70,10 @@ func WriterToPG(c *fiber.Ctx) error {
 		defer wg2.Done()
 		ct := 0
 		for k, v := range dict {
-			values = append(values, k)
-			values = append(values, v)
-			valueStrings = append(valueStrings, fmt.Sprintf("($%d,$%d)", 2*ct+1, 2*ct+2))
+			keys = append(keys, k)
+			values = append(values, int(v))
+			// valueStrings = append(valueStrings, fmt.Sprintf("($%d,$%d)", 2*ct+1, 2*ct+2))
+			// valueStrings = append(valueStrings, fmt.Sprintf("(select (name, occur) from unnest($%d::TEXT[], $%d::INT[]))", 2*ct+1, 2*ct+2))
 			ct++
 		}
 	}()
@@ -87,12 +89,29 @@ func WriterToPG(c *fiber.Ctx) error {
 	}
 	defer tx.Rollback()
 
-	smt := `INSERT INTO token(name, occur) VALUES %s`
+	// smt := `INSERT INTO token(name, occur) VALUES %s`
+
+	// query := `
+	// INSERT INTO token
+	//   (name, occur)
+	//   %s`
+	// INSERT INTO users
+	//   (id, name)
+	//   (select * from unnest($1::int[], $2::int[]));
+
 	// ON CONFLICT (name) DO UPDATE SET occur = token.occur + 1;`
 
-	smt = fmt.Sprintf(smt, strings.Join(valueStrings, ","))
-	fmt.Println(smt)
-	_, err = tx.Exec(smt, values...)
+	// query = fmt.Sprintf(query, strings.Join(valueStrings, ","))
+	// query := fmt.Sprintf("INSERT INTO token(name, occur)(select * from unnest(%s,%v))", keys, values)
+	query := `
+  INSERT INTO token
+    (name, occur)
+    (
+      select * from unnest($1::TEXT[], $2::INT[])
+    )`
+
+	_, err = tx.Query(query, pg.Array(keys), pg.Array(values))
+	// _, err = tx.Exec(query, keys..., values...)
 	if err != nil {
 		tx.Rollback()
 		fmt.Println(err)

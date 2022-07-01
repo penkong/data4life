@@ -1,4 +1,4 @@
-GET http://localhost:5000/api/v1/token/generator/?rows=1000000 HTTP/1.1
+GET http://localhost:5000/api/v1/token/generator/?rows=100000 HTTP/1.1
 # content-type: application/json
 
 # {
