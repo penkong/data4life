@@ -17,4 +17,5 @@ func Setup(app *fiber.App) {
 	v1 := app.Group("/api/v1")
 	SetupTokenGenerator(v1)
 	SetupWriterTo(v1)
+	SetupReporter(v1)
 }

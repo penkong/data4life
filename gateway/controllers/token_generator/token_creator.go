@@ -59,6 +59,8 @@ func TokenCreator(c *fiber.Ctx) error {
 
 	// ----------------------------------------------
 
+	// Worker pattern
+
 	// const numJobs = 5
 	// jobs := make(chan string, n)
 	// results := make(chan string, n)

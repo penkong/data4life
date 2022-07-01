@@ -1,4 +1,4 @@
-GET http://localhost:5000/api/v1/token/generator/?rows=100000 HTTP/1.1
+GET http://localhost:5000/api/v1/token/generator/?rows=10000000 HTTP/1.1
 # content-type: application/json
 
 # {
@@ -9,3 +9,6 @@ GET http://localhost:5000/api/v1/token/generator/?rows=100000 HTTP/1.1
 
 ###
 GET http://localhost:5000/api/v1/write-to/token-pg HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/reporter/token-pg/?limit=50&offset=0 HTTP/1.1

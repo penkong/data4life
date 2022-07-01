@@ -27,8 +27,8 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
-	ch := make(chan string)
 	// reading each line of file and put it in channel
+	ch := make(chan string)
 	go func() {
 		defer close(ch)
 		// read file to scanner as bufio (buffed)
@@ -40,7 +40,7 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
-	// with dictionary
+	// Dictionary usage , listen on channel and make dictionary with inputs
 	dict := make(map[string]int64)
 	wg := new(sync.WaitGroup)
 	wg.Add(1)
@@ -60,7 +60,7 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
-	// valueStrings := []string{}
+	// prepare dictionary for bulk insert with 2 slices
 	keys := []interface{}{}
 	values := []interface{}{}
 
@@ -68,13 +68,9 @@ func WriterToPG(c *fiber.Ctx) error {
 	wg2.Add(1)
 	go func() {
 		defer wg2.Done()
-		ct := 0
 		for k, v := range dict {
 			keys = append(keys, k)
 			values = append(values, int(v))
-			// valueStrings = append(valueStrings, fmt.Sprintf("($%d,$%d)", 2*ct+1, 2*ct+2))
-			// valueStrings = append(valueStrings, fmt.Sprintf("(select (name, occur) from unnest($%d::TEXT[], $%d::INT[]))", 2*ct+1, 2*ct+2))
-			ct++
 		}
 	}()
 	wg2.Wait()
@@ -83,26 +79,11 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
+	// Transactional Bulk insert with unnest pattern
 	tx, err := connectdb.Pdb.DB.BeginTx(c.Context(), &sql.TxOptions{})
-	if err != nil {
-		return err
-	}
+	check(err)
 	defer tx.Rollback()
 
-	// smt := `INSERT INTO token(name, occur) VALUES %s`
-
-	// query := `
-	// INSERT INTO token
-	//   (name, occur)
-	//   %s`
-	// INSERT INTO users
-	//   (id, name)
-	//   (select * from unnest($1::int[], $2::int[]));
-
-	// ON CONFLICT (name) DO UPDATE SET occur = token.occur + 1;`
-
-	// query = fmt.Sprintf(query, strings.Join(valueStrings, ","))
-	// query := fmt.Sprintf("INSERT INTO token(name, occur)(select * from unnest(%s,%v))", keys, values)
 	query := `
   INSERT INTO token
     (name, occur)
@@ -111,7 +92,6 @@ func WriterToPG(c *fiber.Ctx) error {
     )`
 
 	_, err = tx.Query(query, pg.Array(keys), pg.Array(values))
-	// _, err = tx.Exec(query, keys..., values...)
 	if err != nil {
 		tx.Rollback()
 		fmt.Println(err)
@@ -123,7 +103,7 @@ func WriterToPG(c *fiber.Ctx) error {
 
 	// -----------------------------------------------
 
-	// slow write to db
+	// slow write to db - bad one
 	// gNum := 80
 	// wg := new(sync.WaitGroup)
 	// wg.Add(gNum)

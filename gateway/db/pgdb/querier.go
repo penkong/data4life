@@ -9,6 +9,10 @@ import (
 )
 
 type Querier interface {
+	CountNonUnique(ctx context.Context) (int64, error)
+	// -- name: BashInsert :exec
+	// INSERT INTO token(name, occur)(select * from unnest($1::int[], $2::int[]));
+	ReadNonUnique(ctx context.Context, arg ReadNonUniqueParams) ([]ReadNonUniqueRow, error)
 	WriteToken(ctx context.Context, name string) error
 }
 

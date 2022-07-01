@@ -24,6 +24,12 @@ func New(db DBTX) *Queries {
 func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 	q := Queries{db: db}
 	var err error
+	if q.countNonUniqueStmt, err = db.PrepareContext(ctx, countNonUnique); err != nil {
+		return nil, fmt.Errorf("error preparing query CountNonUnique: %w", err)
+	}
+	if q.readNonUniqueStmt, err = db.PrepareContext(ctx, readNonUnique); err != nil {
+		return nil, fmt.Errorf("error preparing query ReadNonUnique: %w", err)
+	}
 	if q.writeTokenStmt, err = db.PrepareContext(ctx, writeToken); err != nil {
 		return nil, fmt.Errorf("error preparing query WriteToken: %w", err)
 	}
@@ -32,6 +38,16 @@ func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 
 func (q *Queries) Close() error {
 	var err error
+	if q.countNonUniqueStmt != nil {
+		if cerr := q.countNonUniqueStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing countNonUniqueStmt: %w", cerr)
+		}
+	}
+	if q.readNonUniqueStmt != nil {
+		if cerr := q.readNonUniqueStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing readNonUniqueStmt: %w", cerr)
+		}
+	}
 	if q.writeTokenStmt != nil {
 		if cerr := q.writeTokenStmt.Close(); cerr != nil {
 			err = fmt.Errorf("error closing writeTokenStmt: %w", cerr)
@@ -74,15 +90,19 @@ func (q *Queries) queryRow(ctx context.Context, stmt *sql.Stmt, query string, ar
 }
 
 type Queries struct {
-	db             DBTX
-	tx             *sql.Tx
-	writeTokenStmt *sql.Stmt
+	db                 DBTX
+	tx                 *sql.Tx
+	countNonUniqueStmt *sql.Stmt
+	readNonUniqueStmt  *sql.Stmt
+	writeTokenStmt     *sql.Stmt
 }
 
 func (q *Queries) WithTx(tx *sql.Tx) *Queries {
 	return &Queries{
-		db:             tx,
-		tx:             tx,
-		writeTokenStmt: q.writeTokenStmt,
+		db:                 tx,
+		tx:                 tx,
+		countNonUniqueStmt: q.countNonUniqueStmt,
+		readNonUniqueStmt:  q.readNonUniqueStmt,
+		writeTokenStmt:     q.writeTokenStmt,
 	}
 }
